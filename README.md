@@ -6,3 +6,7 @@
 - Nest.js
 - Typescript
 - Next.js 
+- GraphQL
+- Apache Kafka
+- Docker
+- Apollo Client
