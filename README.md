@@ -1,8 +1,8 @@
-# Ignite lab
+# Ignite lab 💻
 
-## Aplicação desenvolvida durante o ignite lab
+## Aplicação desenvolvida durante o ignite lab 🚀
 
-## Tecnologias utilizadas 
+## Tecnologias utilizadas 🔨
 - Nest.js
 - Typescript
 - Next.js 
@@ -11,6 +11,7 @@
 - Docker
 - Apollo Federation
 - Apollo Client
+- Tailwind CSS
 
 ## Funcionalidades
 ### Serviço de compras (purchases)
@@ -37,8 +38,12 @@
 
 - [Auth] Acessar conteúdo do curso
 
-## Principais aprendizados
+## Principais aprendizados 📝
 - Mensageria com o Apache Kafka
 - Arquitetura de micro-serviços
 - Uso do GraphQL
 - Utilização do Nest
+- Apollo Federation para "unir" os micro-serviços
+- Utilização do Tailwind para estilização do front
+- Codegen para utilizar as queries do GraphQL
+- Proxy para enviar JWT nas requisições
