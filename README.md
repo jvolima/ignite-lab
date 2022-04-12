@@ -9,6 +9,7 @@
 - GraphQL
 - Apache Kafka
 - Docker
+- Apollo Federation
 - Apollo Client
 
 ## Funcionalidades
