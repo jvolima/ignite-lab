@@ -2,7 +2,7 @@ query Me {
   me {
     enrollments {
       id
-      created_at
+      createdAt
 
       course {
         title

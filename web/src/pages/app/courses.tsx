@@ -35,7 +35,7 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', {
 })
 
 function Courses() {
-  const { data } = useMe();
+  const { data, loading } = useMe();
 
   return (
     <>
@@ -56,7 +56,9 @@ function Courses() {
             </div>
 
             <div className="bg-white shadow overflow-hidden sm:rounded-md mt-8">
-              <ul role="list" className="divide-y divide-gray-200">
+              {
+                loading === true ? <span className="block py-5 px-3">Carregando...</span> : 
+                <ul role="list" className="divide-y divide-gray-200">
                 {data?.me.enrollments.map((enrollment) => (
                   <li key={enrollment.id}>
                     <div className="px-4 py-4 flex items-center sm:px-6">
@@ -100,7 +102,8 @@ function Courses() {
                     </div>
                   </li>
                 ))}
-              </ul>
+                </ul>
+              }
             </div>
           </main>
           <Footer />
