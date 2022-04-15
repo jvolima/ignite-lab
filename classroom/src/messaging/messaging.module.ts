@@ -8,10 +8,6 @@ import { PurchasesController } from './purchases.controller';
 @Module({
   imports: [DatabaseModule],
   controllers: [PurchasesController],
-  providers: [
-    StudentsService,
-    CoursesService,
-    EnrollmentsService
-  ]
+  providers: [StudentsService, CoursesService, EnrollmentsService],
 })
 export class MessagingModule {}

@@ -1,16 +1,16 @@
-import { UseGuards } from "@nestjs/common";
-import { Parent, Query, ResolveField, Resolver } from "@nestjs/graphql";
-import { EnrollmentsService } from "../../../services/enrollments.service";
-import { StudentsService } from "../../../services/students.service";
-import { AuthorizationGuard } from "../../auth/authorization.guard";
-import { AuthUser, CurrentUser } from "../../auth/current-user";
-import { Student } from "../models/student";
+import { UseGuards } from '@nestjs/common';
+import { Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { EnrollmentsService } from '../../../services/enrollments.service';
+import { StudentsService } from '../../../services/students.service';
+import { AuthorizationGuard } from '../../auth/authorization.guard';
+import { AuthUser, CurrentUser } from '../../auth/current-user';
+import { Student } from '../models/student';
 
 @Resolver(() => Student)
 export class StudentsResolver {
-  constructor (
+  constructor(
     private studentsService: StudentsService,
-    private enrollmentsService: EnrollmentsService
+    private enrollmentsService: EnrollmentsService,
   ) {}
 
   /*@Query(() => Student)
@@ -26,9 +26,7 @@ export class StudentsResolver {
   }
 
   @ResolveField()
-  enrollments (
-    @Parent() student: Student
-  ) {
+  enrollments(@Parent() student: Student) {
     return this.enrollmentsService.listEnrollmentsByStudent(student.id);
   }
 }

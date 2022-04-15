@@ -1,8 +1,8 @@
-import { Controller } from "@nestjs/common";
-import { EventPattern, Payload } from "@nestjs/microservices";
-import { CoursesService } from "../services/courses.service";
-import { EnrollmentsService } from "../services/enrollments.service";
-import { StudentsService } from "../services/students.service";
+import { Controller } from '@nestjs/common';
+import { EventPattern, Payload } from '@nestjs/microservices';
+import { CoursesService } from '../services/courses.service';
+import { EnrollmentsService } from '../services/enrollments.service';
+import { StudentsService } from '../services/students.service';
 
 export interface Customer {
   authUserId: string;
@@ -21,27 +21,29 @@ export interface PurchaseCreatedParams {
 
 @Controller()
 export class PurchasesController {
-  constructor (
+  constructor(
     private studentsService: StudentsService,
     private coursesService: CoursesService,
-    private enrollmentsService: EnrollmentsService
+    private enrollmentsService: EnrollmentsService,
   ) {}
 
   @EventPattern('purchases.new-purchase')
-  async purchaseCreated (
-    @Payload('value') payload: PurchaseCreatedParams,
-  ) {
-    let student = await this.studentsService.getStudentByAuthUserId(payload.customer.authUserId);
+  async purchaseCreated(@Payload('value') payload: PurchaseCreatedParams) {
+    let student = await this.studentsService.getStudentByAuthUserId(
+      payload.customer.authUserId,
+    );
 
-    if(!student) {
+    if (!student) {
       student = await this.studentsService.createStudent({
-        authUserId: payload.customer.authUserId
+        authUserId: payload.customer.authUserId,
       });
     }
 
-    let course = await this.coursesService.getCourseBySlug(payload.product.slug);
+    let course = await this.coursesService.getCourseBySlug(
+      payload.product.slug,
+    );
 
-    if(!course) {
+    if (!course) {
       course = await this.coursesService.createCourse({
         title: payload.product.title,
       });
